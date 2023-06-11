@@ -7,7 +7,7 @@ function App() {
 
   console.log(window);
   async function requestAccount(){
-    await window.ethereum.request({method: "eth_requestAccount"});
+    await window.ethereum.request({method: "eth_requestAccount"})
   }
  requestAccount();
 
