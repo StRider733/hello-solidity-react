@@ -24,6 +24,7 @@ function App() {
     
 
     if(typeof window.ethereum !== "undefined"){
+
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const contract = new ethers.Contract(greetingAddress,GreetingContract,provider);
       
@@ -31,15 +32,11 @@ function App() {
         const greeting = await contract.greet();
 
         setGreet(greeting);
-
-
         console.log("Greeting: ", greeting);
         
       } catch (err) {
         console.log(err);
       }
-      
-      
       console.log(contract);
         
     }
@@ -48,28 +45,20 @@ function App() {
 
 
   async function setGreeting(){
+
     if(typeof window.ethereum !== "undefined"){
      await requestAccount();
 
       const provider = new ethers.providers.Web3Provider(window.ethereum);
-
       const contract = new ethers.Contract(greetingAddress,GreetingContract,provider.getSigner());
-
       const transaction = await contract.setGreeting(newGreet);
 
       await transaction.wait();
-
       setGreet(newGreet);
       setNewGreet("");
 
-
-
-
-
-
     }
     
-
   }
 
 
