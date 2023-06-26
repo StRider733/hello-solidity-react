@@ -16,12 +16,9 @@ function App() {
 
   async function requestAccount(){
     await window.ethereum.request({method: "eth_requestAccounts"})
-
   }
  
   async function getGreeting(){
-
-    
 
     if(typeof window.ethereum !== "undefined"){
 
